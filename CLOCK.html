@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Clock.css">
+</head>
+<body>
+     <div class="clock">
+         <div class="numbers">
+             <div class="twelve">XII</div>
+             <div class="three">III</div>
+             <div class="six">VI</div>
+             <div class="nine">IX</div>
+         </div>
+         <div class="arrows">
+             <div class="hour" id="HOUR"></div>
+             <div class="minute" id="MINUTE"></div>
+             <div class="second" id="SECOND"></div>
+         </div>
+     </div>
+
+     <br>
+     <script>
+            var Hour = document.getElementById("HOUR");
+            var Minute = document.getElementById("MINUTE");
+            var Second = document.getElementById("SECOND");
+            
+
+            function updateClock() {
+                var myClock = new Date();
+                var hour = myClock.getHours(); 
+                var minute = myClock.getMinutes();
+                var second = myClock.getSeconds();
+                //setTimeout(updateClock, 1000);
+              
+                var hourDeg = (hour / 12) * 360;
+                Hour.style.transform = `rotate(${hourDeg}deg)`; 
+                var minuteDeg = (minute / 60) * 360;
+                Minute.style.transform = `rotate(${minuteDeg}deg)`; 
+                var secondDeg = (second / 60) * 360;
+                Second.style.transform = `rotate(${secondDeg}deg)`; 
+            };
+            // console.log(updateClock());
+            setInterval(updateClock, 1000);
+
+
+
+     </script>
+</body>
+</html>
